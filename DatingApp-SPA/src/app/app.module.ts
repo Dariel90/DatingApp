@@ -1,23 +1,33 @@
+//Servicio de Autenticación
+import { AuthService } from './_services/auth.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+//Modulo para ejecutar las llamdas a la api
 import { HttpClientModule } from '@angular/common/http';
-
+//Componente principal
 import { AppComponent } from './app.component';
-import { ValueComponent } from './value/value.component';
-import { HttpClient } from 'selenium-webdriver/http';
+//Componente del NavBar
 import { NavComponent } from './nav/nav.component';
+//Modulo para poder utilizar el envio de formularios
+import {FormsModule} from '@angular/forms';
+import { HomeComponent } from './home/home.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
    declarations: [
       AppComponent,
-      ValueComponent,
-      NavComponent
+      NavComponent,
+      HomeComponent,
+      RegisterComponent
    ],
    imports: [
       BrowserModule,
-      HttpClientModule
+      HttpClientModule,
+      FormsModule
    ],
-   providers: [],
+   providers: [
+      AuthService
+   ],
    bootstrap: [
       AppComponent
    ]
