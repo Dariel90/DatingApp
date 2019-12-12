@@ -1,3 +1,4 @@
+import { ErrorInterceptorProvider } from './_services/error.interceptor';
 //Servicio de Autenticación
 import { AuthService } from './_services/auth.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -9,7 +10,7 @@ import { AppComponent } from './app.component';
 //Componente del NavBar
 import { NavComponent } from './nav/nav.component';
 //Modulo para poder utilizar el envio de formularios
-import {FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 
@@ -26,6 +27,7 @@ import { RegisterComponent } from './register/register.component';
       FormsModule
    ],
    providers: [
+      ErrorInterceptorProvider,
       AuthService
    ],
    bootstrap: [
