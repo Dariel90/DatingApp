@@ -21,11 +21,15 @@ export class ErrorInterceptor implements HttpInterceptor {
             if(applicationError) {
               return throwError(applicationError);
             }
+            //Error al registrar que puede enviarse vacio usuario y/o contraseña,
+            //o que el password no concuerde con el Data Annotation establecido en el DTO
+            // Se obtienen los errores y se separan las llaves de Username y Password
+            // con sus respectivos errores.
             const serverError = error.error;
             let modalStateError = '';
             if (serverError.errors && typeof serverError.errors === 'object') {
-              for (const key in serverError.errors){
-                if (serverError.errors[key]){
+              for (const key in serverError.errors) {
+                if (serverError.errors[key]) {
                   modalStateError += serverError.errors[key] + '\n';
                 }
               }
