@@ -47,7 +47,7 @@ namespace DatingApp.API.Data
             return user;
         }
 
-         private void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
+        private void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
         {
             using(var hmac = new System.Security.Cryptography.HMACSHA512()){
                 passwordSalt = hmac.Key;
