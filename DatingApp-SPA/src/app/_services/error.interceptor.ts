@@ -12,13 +12,13 @@ export class ErrorInterceptor implements HttpInterceptor {
      return next.handle(req).pipe(
        catchError(error => {
          //Error 401
-         if (error.status == 401){
+         if (error.status == 401) {
            return throwError(error.statusText);
          }
          //Error 500
          if (error instanceof HttpErrorResponse) {
             const applicationError =  error.headers.get('Application-Error');
-            if(applicationError) {
+            if (applicationError) {
               return throwError(applicationError);
             }
             //Error al registrar que puede enviarse vacio usuario y/o contraseña,

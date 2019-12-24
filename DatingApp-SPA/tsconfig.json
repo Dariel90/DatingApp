@@ -1,4 +1,7 @@
 {
+  "rules":{
+    "no-string-literal": false,
+  },
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
