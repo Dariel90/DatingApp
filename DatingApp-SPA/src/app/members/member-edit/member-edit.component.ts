@@ -14,6 +14,7 @@ import { NgForm } from '@angular/forms';
 export class MemberEditComponent implements OnInit {
   @ViewChild('editForm', {static: true} ) editForm: NgForm;
   user: User;
+  photoUrl: string;
   @HostListener('window:beforeunload', ['$event'])
   unloadNotification($event: any) {
     if (this.editForm.dirty) {
@@ -26,8 +27,10 @@ export class MemberEditComponent implements OnInit {
 
   ngOnInit() {
     this.route.data.subscribe(data => {
+      // tslint:disable-next-line: no-string-literal
       this.user = data['user'];
     });
+    this.authService.currentPhotoUrl.subscribe( photoUrl => this.photoUrl = photoUrl);
   }
 
   updateUserProfile() {
@@ -38,7 +41,6 @@ export class MemberEditComponent implements OnInit {
     }, error => {
       this.alertify.error(error);
     });
-
   }
 
 }
