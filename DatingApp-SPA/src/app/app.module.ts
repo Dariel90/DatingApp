@@ -35,6 +35,7 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { NgxGalleryModule } from 'ngx-gallery';
 import { MemberEditResolver } from './_resolver/member-edit.resolver';
 import { AuthGuard } from './_guards/auth.guard';
+import { TimeAgoPipe} from 'time-ago-pipe';
 
 export class CustomHammerConfig extends HammerGestureConfig  {
   overrides = {
@@ -56,6 +57,7 @@ export class CustomHammerConfig extends HammerGestureConfig  {
       ListsComponent,
       MessagesComponent,
       PhotoEditorComponent,
+      TimeAgoPipe,
    ],
    imports: [
       BrowserModule,
