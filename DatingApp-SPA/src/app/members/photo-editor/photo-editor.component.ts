@@ -58,6 +58,11 @@ export class PhotoEditorComponent implements OnInit {
           isMain: res.isMain,
         };
         this.photos.push(photo);
+        if (photo.isMain) {
+          this.authService.changeMemberPhoto(photo.url);
+          this.authService.currentUser.photoUrl = photo.url;
+          localStorage.setItem('user', JSON.stringify(this.authService.currentUser));
+        }
       }
     };
   }
@@ -76,7 +81,7 @@ export class PhotoEditorComponent implements OnInit {
   }
 
   deletePhoto(id: number) {
-    this.alertify.confirm('Are you sure you want to delete this photo', () => {
+    this.alertify.confirm('Delete photo', 'Are you sure you want to delete this photo', () => {
       this.userService.deletePhoto(this.authService.decodedToken.nameid, id).subscribe( () => {
         //Quitar la foto del arreglo de fotos. Primero buscar el indice por el id
         // y pasar la cantidad de eltos. a borrar
