@@ -1,3 +1,4 @@
+import { ListsResolver } from './_resolver/lists.resolver';
 import { FileSelectDirective, FileDropDirective, FileUploader, FileUploadModule } from 'ng2-file-upload';
 import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
@@ -96,7 +97,8 @@ export class CustomHammerConfig extends HammerGestureConfig  {
       PreventUnsavedChanges,
       {
         provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig
-      }
+      },
+      ListsResolver,
    ],
    bootstrap: [
       AppComponent

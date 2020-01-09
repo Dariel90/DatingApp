@@ -11,8 +11,6 @@ export class PreventUnsavedChanges implements CanDeactivate<MemberEditComponent>
       return confirm('Are you sure you want to continue? Any usaved changes will be lost');
     }
     return true;
-    // this.alertify.error('You shall not pass!!!');
-    // this.router.navigate(['/home']);
 }
 
 
