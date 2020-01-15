@@ -1,3 +1,4 @@
+import { MemberMessagesComponent } from './members/member-messages/member-messages.component';
 import { ListsResolver } from './_resolver/lists.resolver';
 import { FileSelectDirective, FileDropDirective, FileUploader, FileUploadModule } from 'ng2-file-upload';
 import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
@@ -37,6 +38,7 @@ import { NgxGalleryModule } from 'ngx-gallery';
 import { MemberEditResolver } from './_resolver/member-edit.resolver';
 import { AuthGuard } from './_guards/auth.guard';
 import { TimeAgoPipe} from 'time-ago-pipe';
+import { MessagesResolver } from './_resolver/messages.resolver';
 
 export class CustomHammerConfig extends HammerGestureConfig  {
   overrides = {
@@ -55,6 +57,7 @@ export class CustomHammerConfig extends HammerGestureConfig  {
       MemberCardComponent,
       MemberDetailComponent,
       MemberEditComponent,
+      MemberMessagesComponent,
       ListsComponent,
       MessagesComponent,
       PhotoEditorComponent,
@@ -99,6 +102,7 @@ export class CustomHammerConfig extends HammerGestureConfig  {
         provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig
       },
       ListsResolver,
+      MessagesResolver
    ],
    bootstrap: [
       AppComponent
