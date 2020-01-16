@@ -12,7 +12,7 @@ constructor() { }
       if (e) {
         okCallback();
       } else {}
-    });
+    }).setHeader(title);
   }
 
   success(message: string ) {

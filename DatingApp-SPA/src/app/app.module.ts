@@ -39,12 +39,17 @@ import { MemberEditResolver } from './_resolver/member-edit.resolver';
 import { AuthGuard } from './_guards/auth.guard';
 import { TimeAgoPipe} from 'time-ago-pipe';
 import { MessagesResolver } from './_resolver/messages.resolver';
+import { environment} from './../environments/environment';
 
 export class CustomHammerConfig extends HammerGestureConfig  {
   overrides = {
       pinch: { enable: false },
       rotate: { enable: false }
   };
+}
+
+export function tokenGetter(): string {
+  return localStorage.getItem('token');
 }
 
 @NgModule({
@@ -79,9 +84,8 @@ export class CustomHammerConfig extends HammerGestureConfig  {
       FileUploadModule,
       JwtModule.forRoot({
         config: {
-          tokenGetter: () => {
-            return localStorage.getItem('token');
-          },
+          tokenGetter: tokenGetter,
+          authScheme: 'Bearer ',
           whitelistedDomains: ['localhost:5000'],
           blacklistedRoutes: ['localhost:5000/api/auth/']
         }
