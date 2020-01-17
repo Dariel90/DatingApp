@@ -14,7 +14,6 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace DatingApp.API.Controllers {
-    [Authorize]
     [Route ("api/users/{userId}/photos")]
     [ApiController]
     public class PhotosController : ControllerBase{
