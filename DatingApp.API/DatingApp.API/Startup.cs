@@ -24,6 +24,7 @@ using Microsoft.AspNetCore.Identity;
 using DatingApp.API.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
+using Microsoft.Extensions.Hosting;
 
 namespace DatingApp.API
 {
@@ -42,7 +43,6 @@ namespace DatingApp.API
                 x.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
 
-
             ConfigureServices(services);
         }
 
@@ -57,7 +57,7 @@ namespace DatingApp.API
 
         public void ConfigureServices(IServiceCollection services)
         {
-            //Idnetity Builder COnfiguration for User's password
+            //Identity Builder Configuration for User's password
             IdentityBuilder builder = services.AddIdentityCore<User>(opt => {
                 opt.Password.RequireDigit = false;
                 opt.Password.RequiredLength = 4;
@@ -80,27 +80,29 @@ namespace DatingApp.API
                 };
             });
 
-            services.AddMvc( options => {
-                var policy  = new AuthorizationPolicyBuilder().RequireAuthenticatedUser()
-                .Build();
+            services.AddControllers()
+                .AddNewtonsoftJson(opt => {
+                    opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+                });
+            // services.AddMvc( options => {
+            //     var policy  = new AuthorizationPolicyBuilder().RequireAuthenticatedUser()
+            //     .Build();
 
-                options.Filters.Add(new AuthorizeFilter(policy));
-            })
-            .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
-            .AddJsonOptions(opt => {
-                opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
-            });
+            //     options.Filters.Add(new AuthorizeFilter(policy));
+            // })
+            // .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
+            // .AddJsonOptions(opt => {
+            //     opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+            // });
             services.AddCors();
             services.Configure<CloudinarySettings>(Configuration.GetSection("CloudinarySettings"));
             services.AddAutoMapper(typeof(DatingRepository).Assembly);
-            services.AddScoped<IAuthRepository, AuthRepository>();
             services.AddScoped<IDatingRepository, DatingRepository>();//Importando repositorio para CRUD del negocio principal
-
             services.AddScoped<LogUserActivity>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline .
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -121,15 +123,16 @@ namespace DatingApp.API
             }
 
             //app.UseHttpsRedirection();
-            app.UseCors(x=>x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+            app.UseRouting();
             app.UseAuthentication();
+            app.UseAuthorization();
+            app.UseCors(x=>x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             app.UseDefaultFiles();
             app.UseStaticFiles();
-            app.UseMvc(route =>{
-                route.MapSpaFallbackRoute(
-                    name: "spa-fallback",
-                    defaults: new { controller ="Fallback", action = "Index"}
-                );
+
+            app.UseEndpoints(endpoints => {
+                endpoints.MapControllers();
+                endpoints.MapFallbackToController("Index", "Fallback");
             });
         }
     }
