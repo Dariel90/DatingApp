@@ -1,0 +1,845 @@
+{
+	"info": {
+		"_postman_id": "b506d56c-fcbb-48c7-82f2-c68a16400ba0",
+		"name": "DatingApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "http://localhost:5000/api/auth/login",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxIiwidW5pcXVlX25hbWUiOiJkYXJpZWwiLCJuYmYiOjE1NzYxMjMxMDMsImV4cCI6MTU3NjIwOTUwMywiaWF0IjoxNTc2MTIzMTAzfQ.PrjlddHk09vd4TKH_1FJwts9tCTcc3rPKNDehgeUVK-o_3TQfxwp0dmvVdiVans-L8-p138MHIunlX4qwvW3dQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\": \"Dariel\",\n\t\"password\": \"password\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Register",
+			"item": [
+				{
+					"name": "http://localhost:5000/api/auth/register",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxIiwidW5pcXVlX25hbWUiOiJkYXJpZWwiLCJuYmYiOjE1NzYxMjMxMDMsImV4cCI6MTU3NjIwOTUwMywiaWF0IjoxNTc2MTIzMTAzfQ.PrjlddHk09vd4TKH_1FJwts9tCTcc3rPKNDehgeUVK-o_3TQfxwp0dmvVdiVans-L8-p138MHIunlX4qwvW3dQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\": \"emma\",\n\t\"password\": \"password\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:5000/api/auth/register",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxIiwidW5pcXVlX25hbWUiOiJkYXJpZWwiLCJuYmYiOjE1NzYxMjMxMDMsImV4cCI6MTU3NjIwOTUwMywiaWF0IjoxNTc2MTIzMTAzfQ.PrjlddHk09vd4TKH_1FJwts9tCTcc3rPKNDehgeUVK-o_3TQfxwp0dmvVdiVans-L8-p138MHIunlX4qwvW3dQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"gender\": \"male\",\n\t\"username\": \"dariel\",\n\t\"knownAs\": \"Daro\",\n\t\"dateOfBirth\": \"12/31/1990\",\n\t\"city\": \"La Habana\",\n\t\"country\": \"Cuba\",\n\t\"password\": \"password\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "List",
+			"item": [
+				{
+					"name": "http://localhost:5000/api/users",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIyIiwidW5pcXVlX25hbWUiOiJ0b25pIiwibmJmIjoxNTc4NDI3NDAzLCJleHAiOjE1Nzg1MTM4MDMsImlhdCI6MTU3ODQyNzQwM30.wiA9VM-dg31B6OF8CDjP-wDQOWSW6XV9T2psODl4P4MF-ISzP16HEdnqxi67E47ifm-8QppzkttRzmFxeli3rQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:5000/api/users?pageNumber=3&pageSize=5",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIyIiwidW5pcXVlX25hbWUiOiJ0b25pIiwibmJmIjoxNTc4MTE4NDE5LCJleHAiOjE1NzgyMDQ4MTksImlhdCI6MTU3ODExODQxOX0.8kmBGr713aPhxLHXNH0i3Z4ODDkVZbELU0_mHYRCLzrl8RE2Jb2GceOS2MIzCLNidq9LP9ltSnTimS8v4oT2jg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/users?pageNumber=3&pageSize=5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"users"
+							],
+							"query": [
+								{
+									"key": "pageNumber",
+									"value": "3"
+								},
+								{
+									"key": "pageSize",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:5000/api/users?gender=male&pageSize=2&pageNumber=1&minAge=55&maxAge=60&orderBy=vacio",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIyIiwidW5pcXVlX25hbWUiOiJ0b25pIiwibmJmIjoxNTc4NDE5MDUyLCJleHAiOjE1Nzg1MDU0NTIsImlhdCI6MTU3ODQxOTA1Mn0.H1FKVuDVnE_9X8f1ZsER1zQENyY9NuA4uYnxnjlW5w6sBZcazYldJ4G5xSgW9m4u_853jdKvZlNI88_uU_oH8Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/users?gender=male&pageSize=2&pageNumber=1&minAge=55&maxAge=60&orderBy=vacio",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"users"
+							],
+							"query": [
+								{
+									"key": "gender",
+									"value": "male"
+								},
+								{
+									"key": "pageSize",
+									"value": "2"
+								},
+								{
+									"key": "pageNumber",
+									"value": "1"
+								},
+								{
+									"key": "minAge",
+									"value": "55"
+								},
+								{
+									"key": "maxAge",
+									"value": "60"
+								},
+								{
+									"key": "orderBy",
+									"value": "vacio"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Update User",
+			"item": [
+				{
+					"name": "http://localhost:5000/api/users/2",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIyIiwidW5pcXVlX25hbWUiOiJ0b25pIiwibmJmIjoxNTc3MjEyODE1LCJleHAiOjE1NzcyOTkyMTUsImlhdCI6MTU3NzIxMjgxNX0.kAVW5r373D-jTWFGVL88XS9r2dll6OMgYfeNp0jC7Upwg6b5Xop1yO9SXKNQ5NN2gF_vHZzgA4tP17oZ3aTpWA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"introduction\": \"updating intro\",\n\t\"lookingFor\": \"updating lookingFor\",\n\t\"interests\": \"updating interests\",\n\t\"city\": \"updatng city\",\n\t\"country\": \"updating country\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/users/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "User Photos",
+			"item": [
+				{
+					"name": "http://localhost:5000/api/users/2/photos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIyIiwidW5pcXVlX25hbWUiOiJ0b25pIiwibmJmIjoxNTc3MzkzODIxLCJleHAiOjE1Nzc0ODAyMjEsImlhdCI6MTU3NzM5MzgyMX0.3knzKxLfU4Uqwo1QIgKcneqWWu072t-15BKJxyyik6PcB088WWKdf3mhzltnKQIOKX4Fv_iqC4vvSu_RHcQ1NQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIyIiwidW5pcXVlX25hbWUiOiJ0b25pIiwibmJmIjoxNTc3MzkzODIxLCJleHAiOjE1Nzc0ODAyMjEsImlhdCI6MTU3NzM5MzgyMX0.3knzKxLfU4Uqwo1QIgKcneqWWu072t-15BKJxyyik6PcB088WWKdf3mhzltnKQIOKX4Fv_iqC4vvSu_RHcQ1NQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "File",
+									"type": "file",
+									"src": "/C:/Users/Dariel/Pictures/Yo2.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/users/2/photos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"users",
+								"2",
+								"photos"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Set main photo",
+			"item": [
+				{
+					"name": "http://localhost:5000/api/users/2/photos/1002/setMain",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIyIiwidW5pcXVlX25hbWUiOiJ0b25pIiwibmJmIjoxNTc3NjYzMzcwLCJleHAiOjE1Nzc3NDk3NzAsImlhdCI6MTU3NzY2MzM3MH0.M-h7AvaxOm2Wj-JyX0OSy5HgUW4UDrLfef1UXpXp2grTHZvC_GFkj-C6UoYNAV_2ulHBTfUmm1dBHZp_A0f41w",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/users/2/photos/1002/setMain",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"users",
+								"2",
+								"photos",
+								"1002",
+								"setMain"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Delete Photo",
+			"item": [
+				{
+					"name": "http://localhost:5000/api/users/2/photos/2",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIyIiwidW5pcXVlX25hbWUiOiJ0b25pIiwibmJmIjoxNTc3NzQ2MzE4LCJleHAiOjE1Nzc4MzI3MTgsImlhdCI6MTU3Nzc0NjMxOH0.v07PXejITz_nxCI7atJV_VqdX3dMGOy0AAP9RJ8vw70i-o5uIN3TuDfnvOwd2VdsxLvQLC2yAxles2pQHgHtNg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/users/2/photos/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"users",
+								"2",
+								"photos",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Like",
+			"item": [
+				{
+					"name": "http://localhost:5000/api/users/1002/like/1",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxMDAyIiwidW5pcXVlX25hbWUiOiJkYXJpZWwiLCJuYmYiOjE1Nzg0Mjc0OTcsImV4cCI6MTU3ODUxMzg5NywiaWF0IjoxNTc4NDI3NDk3fQ.h-BsF52ZaOJIX4ywWwHVhea3jFa-79H1Db0-Nb_WG-nBhM_qqGr6MNbIgDvg2NUcwAwSrj3N8A5DiwG5ZxsWyg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/users/1002/like/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"users",
+								"1002",
+								"like",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:5000/api/users?likees=true",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxMDAyIiwidW5pcXVlX25hbWUiOiJkYXJpZWwiLCJuYmYiOjE1Nzg1ODI2MzEsImV4cCI6MTU3ODY2OTAzMSwiaWF0IjoxNTc4NTgyNjMxfQ.BrVTUfqqk1V_LbsVRzssd-HoqoosN4Ri1LCJC9kFCX3skezPB3d-Udl7zQqfDkn7_GrYGYuhjrFt6t-nnNtC-Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/users?likees=true",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"users"
+							],
+							"query": [
+								{
+									"key": "likees",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Messages",
+			"item": [
+				{
+					"name": "http://localhost:5000/api/users/1002/messages/",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxMDAyIiwidW5pcXVlX25hbWUiOiJkYXJpZWwiLCJuYmYiOjE1Nzg2ODE4MTEsImV4cCI6MTU3ODc2ODIxMSwiaWF0IjoxNTc4NjgxODExfQ.2rBn-d2d1cis1pU0Wyld1hEgsyJ6iMIhx6csVx4LA1MwaO4asy0rIX6OAjNP-j6A34u126VtwCMMOtS5S0u13A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"recipientId\": 1003,\n\t\"content\": \"Segundo Mensaje de Dariel a Daniela con mucho amor\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/users/1002/messages/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"users",
+								"1002",
+								"messages",
+								""
+							]
+						},
+						"description": "Send a Message To recipient"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:5000/api/users/1002/messages?messageContainer=Outbox",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxMDAyIiwidW5pcXVlX25hbWUiOiJkYXJpZWwiLCJuYmYiOjE1Nzg4NjQ0ODksImV4cCI6MTU3ODk1MDg4OSwiaWF0IjoxNTc4ODY0NDg5fQ.3PazMJWEPpE0xUNaanisJAXYx1CmrAQQHiUdd0ODeiDna_m1d0htLYUzm6FgRjaxefxak2cciUd9POCuVtCrBA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/users/1002/messages?messageContainer=Outbox",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"users",
+								"1002",
+								"messages"
+							],
+							"query": [
+								{
+									"key": "messageContainer",
+									"value": "Outbox"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:5000/api/users/1002/messages/thread/3",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxMDAyIiwidW5pcXVlX25hbWUiOiJkYXJpZWwiLCJuYmYiOjE1Nzg5NTA2NDUsImV4cCI6MTU3OTAzNzA0NSwiaWF0IjoxNTc4OTUwNjQ1fQ.qZfECkxFLfPWsGciRQ8zPuN3_uG2_0O0KpKJ5ADqz6MxuYdRnRurrtcgenSjqYyxTw5taCIC9T6gSKJEfLuoAA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/users/1002/messages/thread/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"users",
+								"1002",
+								"messages",
+								"thread",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Values",
+			"item": [
+				{
+					"name": "http://localhost:5000/api/values",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxMSIsInVuaXF1ZV9uYW1lIjoiQWRtaW4iLCJyb2xlIjpbIkFkbWluIiwiTW9kZXJhdG9yIl0sIm5iZiI6MTU3OTU4MDM2MCwiZXhwIjoxNTc5NjY2NzYwLCJpYXQiOjE1Nzk1ODAzNjB9.R26ecodTWMQ3eRShWmAwWM8UdjJSUG3pagf8MuKWDVSWiPf850KCcYt9noaQTg8PtWlG7OczA3tQEIS-mDDfLQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/values",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"values"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "http://localhost:5000/api/admin/userswithroles",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxMSIsInVuaXF1ZV9uYW1lIjoiQWRtaW4iLCJyb2xlIjpbIkFkbWluIiwiTW9kZXJhdG9yIl0sIm5iZiI6MTU3OTU4MDM2MCwiZXhwIjoxNTc5NjY2NzYwLCJpYXQiOjE1Nzk1ODAzNjB9.R26ecodTWMQ3eRShWmAwWM8UdjJSUG3pagf8MuKWDVSWiPf850KCcYt9noaQTg8PtWlG7OczA3tQEIS-mDDfLQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/admin/userswithroles",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"admin",
+								"userswithroles"
+							]
+						},
+						"description": "Administration Role Tasks"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:5000/api/admin/editRoles/toni",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxMSIsInVuaXF1ZV9uYW1lIjoiQWRtaW4iLCJyb2xlIjpbIkFkbWluIiwiTW9kZXJhdG9yIl0sIm5iZiI6MTU3OTU4MDM2MCwiZXhwIjoxNTc5NjY2NzYwLCJpYXQiOjE1Nzk1ODAzNjB9.R26ecodTWMQ3eRShWmAwWM8UdjJSUG3pagf8MuKWDVSWiPf850KCcYt9noaQTg8PtWlG7OczA3tQEIS-mDDfLQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"roleNames\": [\"Moderator\"]\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/admin/editRoles/toni",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"admin",
+								"editRoles",
+								"toni"
+							]
+						},
+						"description": "Admin - edit roles"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
