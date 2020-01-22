@@ -1,3 +1,8 @@
+import { RolesModalComponent } from './admin/roles-modal/roles-modal.component';
+import { AdminService } from './_services/admin.service';
+import { PhotoManagementComponent } from './admin/photo-management/photo-management.component';
+import { HasRoleDirective } from './_directives/hasRole.directive';
+import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
 import { MemberMessagesComponent } from './members/member-messages/member-messages.component';
 import { ListsResolver } from './_resolver/lists.resolver';
 import { FileSelectDirective, FileDropDirective, FileUploader, FileUploadModule } from 'ng2-file-upload';
@@ -27,7 +32,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 //Para usar ngx-Bootstrap
-import { BsDropdownModule, TabsModule, BsDatepickerModule, PaginationModule, ButtonsModule } from 'ngx-bootstrap';
+import { BsDropdownModule, TabsModule, BsDatepickerModule, PaginationModule, ButtonsModule, ModalModule } from 'ngx-bootstrap';
 import { MemberListComponent } from './members/member-list/member-list.component';
 import { ListsComponent } from './lists/lists.component';
 import { MessagesComponent } from './messages/messages.component';
@@ -39,7 +44,7 @@ import { MemberEditResolver } from './_resolver/member-edit.resolver';
 import { AuthGuard } from './_guards/auth.guard';
 import { TimeAgoPipe} from 'time-ago-pipe';
 import { MessagesResolver } from './_resolver/messages.resolver';
-import { environment} from './../environments/environment';
+import { UserManagementComponent } from './admin/user-management/user-management.component';
 
 export class CustomHammerConfig extends HammerGestureConfig  {
   overrides = {
@@ -67,6 +72,11 @@ export function tokenGetter(): string {
       MessagesComponent,
       PhotoEditorComponent,
       TimeAgoPipe,
+      AdminPanelComponent,
+      HasRoleDirective,
+      UserManagementComponent,
+      PhotoManagementComponent,
+      RolesModalComponent
    ],
    imports: [
       BrowserModule,
@@ -81,6 +91,7 @@ export function tokenGetter(): string {
       TabsModule.forRoot(),
       ButtonsModule.forRoot(),
       RouterModule.forRoot(appRoutes),
+      ModalModule.forRoot(),
       FileUploadModule,
       JwtModule.forRoot({
         config: {
@@ -106,7 +117,11 @@ export function tokenGetter(): string {
         provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig
       },
       ListsResolver,
-      MessagesResolver
+      MessagesResolver,
+      AdminService,
+   ],
+   entryComponents: [
+     RolesModalComponent
    ],
    bootstrap: [
       AppComponent

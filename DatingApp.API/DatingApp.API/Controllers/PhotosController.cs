@@ -47,7 +47,7 @@ namespace DatingApp.API.Controllers {
 
             //Comporuebo que el usuario que realizó la petición exista en la BD
             if(userId != int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value)) return Unauthorized();
-            var userFromRepo = await _repo.GetUser(userId);
+            var userFromRepo = await _repo.GetUser(userId, true);
             //Obtengo el fichero que el usuario subió
             var file = photoForCreationDto.File;
             //Creo la instancia para almacenar los datos de la imagen que se va a subir
@@ -96,7 +96,7 @@ namespace DatingApp.API.Controllers {
         [HttpPost("{id}/setMain")]
         public async Task<IActionResult> setMainPhotlo(int userId, int id){
             if(userId != int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value)) return Unauthorized();
-            var user = await _repo.GetUser(userId);
+            var user = await _repo.GetUser(userId, true);
 
             if(!user.Photos.Any(p => p.Id == id)) return Unauthorized();
 
@@ -118,7 +118,7 @@ namespace DatingApp.API.Controllers {
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeletePhoto(int userId, int id){
             if(userId != int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value)) return Unauthorized();
-            var user = await _repo.GetUser(userId);
+            var user = await _repo.GetUser(userId, true);
 
             if(!user.Photos.Any(p => p.Id == id)) return Unauthorized();
 

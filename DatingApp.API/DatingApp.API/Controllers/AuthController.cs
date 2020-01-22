@@ -43,9 +43,8 @@ namespace DatingApp.API.Controllers
             var result = await _userManager.CreateAsync(userToCreate, userForRegisterDto.Password);
 
             if(result.Succeeded){
-                 var userToReturn = _mapper.Map<UserForDetailedDto>(userToCreate);
-
-            return CreatedAtRoute("GetUser", new {controller = "Users", id = userToCreate.Id }, userToReturn);
+                var userToReturn = _mapper.Map<UserForDetailedDto>(userToCreate);
+                return CreatedAtRoute("GetUser", new {controller = "Users", id = userToCreate.Id }, userToReturn);
             }
             return BadRequest(result.Errors);
         }
@@ -60,8 +59,8 @@ namespace DatingApp.API.Controllers
                 var appUser = _mapper.Map<UserForListDto>(user);
                 return Ok(new
                 {
-                    token = GenerateJwtToken(user),
-                    user = appUser,
+                    token = await GenerateJwtToken(user),
+                    user = appUser
                 });
             }
             return Unauthorized();
@@ -69,7 +68,6 @@ namespace DatingApp.API.Controllers
 
         private async Task<string> GenerateJwtToken(User user)
         {
-
             var claims = new List<Claim> {
                 new Claim (ClaimTypes.NameIdentifier, user.Id.ToString ()),
                 new Claim (ClaimTypes.Name, user.UserName),
